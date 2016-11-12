@@ -1,4 +1,4 @@
-var serverData = require('../../server');
+//var serverData = require('../server');
 //import connect here ******
 
 
@@ -10,7 +10,7 @@ var serverData = require('../../server');
 export function reducer(currentQuestion = '', action) {
     switch(action.type) {
         default:
-            return items;
+            return currentQuestion;
     }
 }
 
