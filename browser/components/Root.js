@@ -11,7 +11,7 @@ export default ({}) => (
         <div>
             <div className="row text-center">
       <a href="#" className="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Click to find out!</a>
-  </div>
+</div>
         </div>
         <div>
         <RootModal />

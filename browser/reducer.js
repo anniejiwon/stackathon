@@ -1,30 +1,36 @@
-//var serverData = require('../server');
-//import connect here ******
+
+//-------------ACTIONS-------------
+
+const GET_QUESTION = 'GET_QUESTION';
+
+//-------------ACTION CREATORS-------------
+
+export const getQuestion = (question) => ({
+	type: GET_QUESTION,
+	question
+})
 
 
-
-
+//-------CURRENT QUESTION REDUCER--------
 
 
 // currentQuestion Reducer:
-export function reducer(currentQuestion = '', action) {
+export function reducer(currentQuestion = 'What do you consider to be the best fictional universe?', action) {
     switch(action.type) {
+        case GET_QUESTION:
+            return action.question;
+
         default:
             return currentQuestion;
     }
 }
 
+//-------------DISPATCHERS-------------
 
-
-export const fetchRandomQuestion = () => ((dispatch) => {
-	console.log("dispatching single item")
-	console.log("ITEM IN FETCH: ", itemId)
-	
-	fetch(`/api/items/${itemId}`)
+export const fetchNewQuestion = () => ((dispatch) => {
+	fetch(`/api/questions/1`)
     .then(res => res.json())
     .then(item => {
-    	console.log("ITEM: ", item)
-    	dispatch(getSelectedItem(item))
-
+    	dispatch(getQuestion(question))
     });
 })

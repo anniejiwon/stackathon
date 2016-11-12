@@ -77,6 +77,9 @@ app.get('/api/questions', function (req, res) {
   res.json(questions);
 });
 
+app.get('/api/questions/:questionIndex', function (req, res) {
+  res.json(questions[req.params.questionIndex]);
+});
 
 app.listen(3000, function () {
   console.log('Server listening on port', 3000);

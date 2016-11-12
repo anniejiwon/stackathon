@@ -68,6 +68,10 @@
 	
 	var _Result2 = _interopRequireDefault(_Result);
 	
+	var _RootModalContainer = __webpack_require__(276);
+	
+	var _RootModalContainer2 = _interopRequireDefault(_RootModalContainer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(0, _reactDom.render)(_react2.default.createElement(
@@ -76,7 +80,11 @@
 	  _react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.hashHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Root2.default })
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { path: '/', component: _Root2.default },
+	      _react2.default.createElement(_reactRouter.Route, { path: 'rootModal', component: _RootModalContainer2.default })
+	    )
 	  )
 	), document.getElementById('app'));
 
@@ -4352,77 +4360,124 @@
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reducer = __webpack_require__(267);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	exports.default = function (_ref) {
-	  _objectDestructuringEmpty(_ref);
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "container" },
-	    _react2.default.createElement(
-	      "div",
-	      { className: "modal fade", id: "largeModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "largeModal", "aria-hidden": "true" },
-	      _react2.default.createElement(
-	        "div",
-	        { className: "modal-dialog modal-lg" },
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// export default ({currentQuestion}) => (
+	//       <div className="container">
+	//       <div className="modal fade" id="largeModal" tabIndex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+	//         <div className="modal-dialog modal-lg">
+	//           <div className="modal-content">
+	//             <div className="modal-header">
+	//               <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	//               <h4 className="modal-title" id="myModalLabel">Large Modal</h4>
+	//             </div>
+	//             <div className="modal-body">
+	//               <h3>{currentQuestion}</h3>
+	//             </div>
+	//             <div className="modal-footer">
+	//               <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+	//               <button type="button" className="btn btn-primary">Microphone On</button>
+	//             </div>
+	//           </div>
+	//         </div>
+	//       </div>
+	//       </div>
+	// )
+	
+	
+	var RootModal = function (_React$Component) {
+	  _inherits(RootModal, _React$Component);
+	
+	  function RootModal(props) {
+	    _classCallCheck(this, RootModal);
+	
+	    return _possibleConstructorReturn(this, (RootModal.__proto__ || Object.getPrototypeOf(RootModal)).call(this, props));
+	  }
+	
+	  _createClass(RootModal, [{
+	    key: 'render',
+	    value: function render() {
+	      console.log('THIS.PROPS: ', this.props); // This is where I'm confused, becuase RootModalContainer should have mapped the currentQuestion to the props, but props is empty
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "modal-content" },
+	          'div',
+	          { className: 'modal fade', id: 'largeModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'largeModal', 'aria-hidden': 'true' },
 	          _react2.default.createElement(
-	            "div",
-	            { className: "modal-header" },
+	            'div',
+	            { className: 'modal-dialog modal-lg' },
 	            _react2.default.createElement(
-	              "button",
-	              { type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true" },
-	              "\xD7"
-	            ),
-	            _react2.default.createElement(
-	              "h4",
-	              { className: "modal-title", id: "myModalLabel" },
-	              "Large Modal"
-	            )
-	          ),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "modal-body" },
-	            _react2.default.createElement(
-	              "h3",
-	              null,
-	              "Modal Body"
-	            )
-	          ),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "modal-footer" },
-	            _react2.default.createElement(
-	              "button",
-	              { type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-	              "Close"
-	            ),
-	            _react2.default.createElement(
-	              "button",
-	              { type: "button", className: "btn btn-primary" },
-	              "Save changes"
+	              'div',
+	              { className: 'modal-content' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'modal-header' },
+	                _react2.default.createElement(
+	                  'button',
+	                  { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	                  '\xD7'
+	                ),
+	                _react2.default.createElement(
+	                  'h4',
+	                  { className: 'modal-title', id: 'myModalLabel' },
+	                  'Question goes here'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'modal-body' },
+	                _react2.default.createElement(
+	                  'h3',
+	                  null,
+	                  'Input goes here'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'modal-footer' },
+	                _react2.default.createElement(
+	                  'button',
+	                  { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
+	                  'Microphone On'
+	                ),
+	                _react2.default.createElement(
+	                  'button',
+	                  { type: 'button', className: 'btn btn-primary' },
+	                  'Submit'
+	                )
+	              )
 	            )
 	          )
 	        )
-	      )
-	    )
-	  );
-	};
+	      );
+	    }
+	  }]);
+	
+	  return RootModal;
+	}(_react2.default.Component);
+	
+	exports.default = RootModal;
 
 /***/ },
 /* 37 */
@@ -28923,7 +28978,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// import { createStore } from 'redux'
-	var store = (0, _redux.createStore)(_reducer.reducer, (0, _redux.applyMiddleware)((0, _reduxLogger2.default)(), _reduxThunk2.default));
+	var initialState = {};
+	
+	var store = (0, _redux.createStore)(_reducer.reducer, { currentQuestion: 'What is your favorite thing?' });
 	
 	// const store = createStore(reducer)
 	
@@ -28936,37 +28993,51 @@
 /* 267 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.reducer = reducer;
-	//var serverData = require('../server');
-	//import connect here ******
+	
+	//-------------ACTIONS-------------
+	
+	var GET_QUESTION = 'GET_QUESTION';
+	
+	//-------------ACTION CREATORS-------------
+	
+	var getQuestion = exports.getQuestion = function getQuestion(question) {
+	    return {
+	        type: GET_QUESTION,
+	        question: question
+	    };
+	};
+	
+	//-------CURRENT QUESTION REDUCER--------
 	
 	
 	// currentQuestion Reducer:
 	function reducer() {
-	    var currentQuestion = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+	    var currentQuestion = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'What do you consider to be the best fictional universe?';
 	    var action = arguments[1];
 	
 	    switch (action.type) {
+	        case GET_QUESTION:
+	            return action.question;
+	
 	        default:
 	            return currentQuestion;
 	    }
 	}
 	
-	var fetchRandomQuestion = exports.fetchRandomQuestion = function fetchRandomQuestion() {
-	    return function (dispatch) {
-	        console.log("dispatching single item");
-	        console.log("ITEM IN FETCH: ", itemId);
+	//-------------DISPATCHERS-------------
 	
-	        fetch("/api/items/" + itemId).then(function (res) {
+	var fetchNewQuestion = exports.fetchNewQuestion = function fetchNewQuestion() {
+	    return function (dispatch) {
+	        fetch('/api/questions/1').then(function (res) {
 	            return res.json();
 	        }).then(function (item) {
-	            console.log("ITEM: ", item);
-	            dispatch(getSelectedItem(item));
+	            dispatch(getQuestion(question));
 	        });
 	    };
 	};
@@ -29881,6 +29952,41 @@
 	
 	      return _react2.default.createElement('div', null);
 	};
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _reactRedux = __webpack_require__(175);
+	
+	var _RootModal = __webpack_require__(36);
+	
+	var _RootModal2 = _interopRequireDefault(_RootModal);
+	
+	var _reducer = __webpack_require__(267);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(_ref) {
+	    var currentQuestion = _ref.currentQuestion;
+	    return { currentQuestion: currentQuestion };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        getNewQuestion: function getNewQuestion() {
+	            dispatch((0, _reducer.fetchNewQuestion)());
+	        }
+	    };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_RootModal2.default);
 
 /***/ }
 /******/ ]);

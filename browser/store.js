@@ -4,11 +4,13 @@ import {reducer} from './reducer'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-const store = createStore(reducer, applyMiddleware(createLogger(), thunkMiddleware))
+const initialState = {};
+
+const store = createStore(reducer, {currentQuestion: 'What is your favorite thing?'});
 
 // const store = createStore(reducer)
 
-export default store
+export default store;
 
 // Set the auth info at start
 // store.dispatch(whoami())
