@@ -4,7 +4,7 @@ import Question from './Question'
 export default ({}) => (
 
       <div>
-        <h1>HELLOHELLOHELLO</h1>
+        <h1 id="rootHeader">HELLOHELLOHELLO</h1>
         <Question />
       </div>
 
