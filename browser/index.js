@@ -10,11 +10,17 @@ import store from './store';
 import Result from './components/Result';
 import RootModalContainer from './containers/RootModalContainer';
 
+
+const loadQuestion = () => {
+  store.dispatch(fetchNewQuestion(1))
+} 
+
+
 render (
   <Provider store={store}>
     <Router history={ hashHistory }>
       <Route path="/" component={Root} >
-        <Route path="rootModal" component={RootModalContainer} />
+        <Route path="rootModal" component={RootModalContainer} onEnter={loadQuestion} />
       </Route>
     </Router>
   </Provider>,

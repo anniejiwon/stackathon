@@ -27,8 +27,8 @@ export function reducer(currentQuestion = 'What do you consider to be the best f
 
 //-------------DISPATCHERS-------------
 
-export const fetchNewQuestion = () => ((dispatch) => {
-	fetch(`/api/questions/1`)
+export const fetchNewQuestion = (idx) => ((dispatch) => {
+	fetch(`/api/questions/${idx}`)
     .then(res => res.json())
     .then(item => {
     	dispatch(getQuestion(question))
