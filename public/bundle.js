@@ -73,7 +73,11 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: _store2.default },
-	  _react2.default.createElement(_Root2.default, null)
+	  _react2.default.createElement(
+	    _reactRouter.Router,
+	    { history: _reactRouter.hashHistory },
+	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Root2.default })
+	  )
 	), document.getElementById('app'));
 
 /***/ },
@@ -4283,7 +4287,12 @@
 	    _react2.default.createElement(
 	      'h1',
 	      { id: 'rootHeader' },
-	      'HELLOHELLOHELLO'
+	      'Do you have a personality?'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'click start to find out!'
 	    ),
 	    _react2.default.createElement(_Question2.default, null)
 	  );

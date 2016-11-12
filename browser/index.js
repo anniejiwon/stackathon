@@ -11,7 +11,9 @@ import Result from './components/Result'
 
 render (
   <Provider store={store}>
-    <Root />
+    <Router history={ hashHistory }>
+      <Route path="/" component={Root} />
+    </Router>
   </Provider>,
   document.getElementById('app')
 )

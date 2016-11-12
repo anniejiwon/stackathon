@@ -4,7 +4,8 @@ import Question from './Question'
 export default ({}) => (
 
       <div>
-        <h1 id="rootHeader">HELLOHELLOHELLO</h1>
+        <h1 id="rootHeader">Do you have a personality?</h1>
+        <p>click start to find out!</p>
         <Question />
       </div>
 
