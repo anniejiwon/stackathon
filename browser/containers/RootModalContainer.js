@@ -2,14 +2,24 @@
 
 import { connect } from 'react-redux';
 import RootModal from '../components/RootModal';
-import { fetchNewQuestion } from '../reducer';
+// import { fetchNewQuestion } from '../reducer';
+import {loadQuestion} from '../reducer'
 
-const mapStateToProps = ({currentQuestion}) => ({currentQuestion}); 
+
+const mapStateToProps = ({allQuestions,question}) => (
+    allQuestions,
+    question
+); 
+
 
 const mapDispatchToProps = dispatch => ({
-    getNewQuestion(){
-    	dispatch(fetchNewQuestion());
-    }
+    getNewQuestion: (questionId) => dispatch(loadQuestion(questionId))
 })
+
+// const mapDispatchToProps = dispatch => ({
+//     getNewQuestion(){
+//     	dispatch(fetchNewQuestion());
+//     }
+// })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootModal);

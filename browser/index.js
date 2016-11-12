@@ -9,11 +9,28 @@ import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-rou
 import store from './store';
 import Result from './components/Result';
 import RootModalContainer from './containers/RootModalContainer';
+import axios from 'axios'
+import {receiveAllQuestions} from './reducer'
+
+ 
+
+
+
+const loadQuestions = (questions) => {
+  store.dispatch(receiveAllQuestions(questions));
+};
+
+const onHomeEnter = function () {
+  fetch('/api/questions')
+    .then(res => res.json())
+    .then(result => loadQuestions(result))
+};
+
 
 render (
   <Provider store={store}>
     <Router history={ hashHistory }>
-      <Route path="/" component={Root} >
+      <Route path="/" component={Root} onEnter={onHomeEnter} >
         <Route path="rootModal" component={RootModalContainer} />
       </Route>
     </Router>
