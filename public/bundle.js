@@ -4288,7 +4288,30 @@
 	      return _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement('h1', null),
+	            _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                        'h3',
+	                        { id: 'welcome' },
+	                        'Welcome!'
+	                  ),
+	                  _react2.default.createElement(
+	                        'p',
+	                        { id: 'intro1' },
+	                        'R. Bulman and A. Won have teamed up with Dr. Watson to bring to you LETS GET PERSONAL. '
+	                  ),
+	                  _react2.default.createElement(
+	                        'p',
+	                        { id: 'intro1' },
+	                        'Here we will test your knowledge of math and science and will determine if your personality is sutiable for humanity.'
+	                  ),
+	                  _react2.default.createElement(
+	                        'p',
+	                        { id: 'intro1' },
+	                        'Good luck!'
+	                  )
+	            ),
 	            _react2.default.createElement(
 	                  'div',
 	                  { className: 'jumbotron' },
