@@ -4263,7 +4263,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	      value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -4274,28 +4274,54 @@
 	
 	var _Question2 = _interopRequireDefault(_Question);
 	
+	var _RootModal = __webpack_require__(275);
+	
+	var _RootModal2 = _interopRequireDefault(_RootModal);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 	
 	exports.default = function (_ref) {
-	  _objectDestructuringEmpty(_ref);
+	      _objectDestructuringEmpty(_ref);
 	
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      { id: 'rootHeader' },
-	      'Do you have a personality?'
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'click start to find out!'
-	    ),
-	    _react2.default.createElement(_Question2.default, null)
-	  );
+	      return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement('h1', null),
+	            _react2.default.createElement(
+	                  'div',
+	                  { className: 'jumbotron' },
+	                  _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(
+	                              'h1',
+	                              { id: 'rootHeader' },
+	                              'Do you have a personality?'
+	                        ),
+	                        _react2.default.createElement(
+	                              'div',
+	                              null,
+	                              _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row text-center' },
+	                                    _react2.default.createElement(
+	                                          'a',
+	                                          { href: '#', className: 'btn btn-lg btn-primary', 'data-toggle': 'modal', 'data-target': '#largeModal' },
+	                                          'Click to find out!'
+	                                    )
+	                              )
+	                        ),
+	                        _react2.default.createElement(
+	                              'div',
+	                              null,
+	                              _react2.default.createElement(_RootModal2.default, null)
+	                        ),
+	                        _react2.default.createElement(_Question2.default, null)
+	                  )
+	            )
+	      );
 	};
 
 /***/ },
@@ -4305,7 +4331,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	      value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -4317,40 +4343,9 @@
 	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
 	
 	exports.default = function (_ref) {
-	  _objectDestructuringEmpty(_ref);
+	      _objectDestructuringEmpty(_ref);
 	
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Questions!'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'jumbotron' },
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Hello, world!'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        '...'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        _react2.default.createElement(
-	          'a',
-	          { className: 'btn btn-primary btn-lg', href: '#', role: 'button' },
-	          'Learn more'
-	        )
-	      )
-	    )
-	  );
+	      return _react2.default.createElement('div', null);
 	};
 
 /***/ },
@@ -29794,6 +29789,82 @@
 	      _objectDestructuringEmpty(_ref);
 	
 	      return _react2.default.createElement('div', null);
+	};
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	
+	exports.default = function (_ref) {
+	  _objectDestructuringEmpty(_ref);
+	
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "container" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "modal fade", id: "largeModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "largeModal", "aria-hidden": "true" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "modal-dialog modal-lg" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "modal-content" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "modal-header" },
+	            _react2.default.createElement(
+	              "button",
+	              { type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true" },
+	              "\xD7"
+	            ),
+	            _react2.default.createElement(
+	              "h4",
+	              { className: "modal-title", id: "myModalLabel" },
+	              "Large Modal"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "modal-body" },
+	            _react2.default.createElement(
+	              "h3",
+	              null,
+	              "Modal Body"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "modal-footer" },
+	            _react2.default.createElement(
+	              "button",
+	              { type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+	              "Close"
+	            ),
+	            _react2.default.createElement(
+	              "button",
+	              { type: "button", className: "btn btn-primary" },
+	              "Save changes"
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
 	};
 
 /***/ }
