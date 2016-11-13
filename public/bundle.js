@@ -31525,8 +31525,10 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	      value: true
+	    value: true
 	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
 	
@@ -31534,21 +31536,59 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	exports.default = function (_ref) {
-	      _objectDestructuringEmpty(_ref);
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	      return _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement(
-	                  'h3',
-	                  null,
-	                  'RESULTS!'
-	            )
-	      );
-	};
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// import axios from 'axios';
+	
+	// export default ({}) => {
+	//       console.log('IN RESULT, this.state: ', state)
+	//       return (
+	//       <div>
+	//       <h3>RESULTS!</h3>
+	//       </div>
+	// )}
+	
+	// I just had to change this to a component to test something out, feel free to change it back
+	var Result = function (_Component) {
+	    _inherits(Result, _Component);
+	
+	    function Result(props) {
+	        _classCallCheck(this, Result);
+	
+	        return _possibleConstructorReturn(this, (Result.__proto__ || Object.getPrototypeOf(Result)).call(this));
+	    }
+	
+	    _createClass(Result, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //this is where I'm planning to make the post to watson with the answers as a req.body
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	
+	            console.log('IN RESULT, this.state: ', this.state);
+	
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'RESULTS!'
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Result;
+	}(_react.Component);
+	
+	exports.default = Result;
 
 /***/ },
 /* 301 */
@@ -31694,7 +31734,7 @@
 	                            )
 	                        )
 	                    )
-	                ) : _react2.default.createElement(_Result2.default, null)
+	                ) : _react2.default.createElement(_Result2.default, { state: this.state })
 	            );
 	        }
 	    }]);

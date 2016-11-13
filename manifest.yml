@@ -1,0 +1,16 @@
+---
+declared-services:
+  personality-insights-tutorial:
+    label: personality_insights
+    plan: tiered
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: personalityInsts
+  command: node app.js
+  host: personalityInsights
+  disk_quota: 1024M
+  services:
+  - personality-insights-tutorial
