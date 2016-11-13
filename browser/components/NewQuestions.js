@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import Result from './Result'
 
 export default class NewQuestions extends Component {
     constructor() {
@@ -33,7 +34,12 @@ export default class NewQuestions extends Component {
         console.log(this.state)
         return (
             <div className="jumbotron">
-                <div>
+                
+                {
+                    
+                    (this.state.answers.length <= 10) ?  
+                    <div>
+                    <div>
                     <h2 id="rootHeader">{this.state.question}</h2>
                     </div>
                     <div className="row text-center">
@@ -46,6 +52,12 @@ export default class NewQuestions extends Component {
                             </div>
                             </form>
                     </div>
+                    </div>
+                    :
+                    <Result />
+
+                }
+                    
             </div>
        )
     }

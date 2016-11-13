@@ -31539,7 +31539,15 @@
 	exports.default = function (_ref) {
 	      _objectDestructuringEmpty(_ref);
 	
-	      return _react2.default.createElement('div', null);
+	      return _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	                  'h3',
+	                  null,
+	                  'RESULTS!'
+	            )
+	      );
 	};
 
 /***/ },
@@ -31602,6 +31610,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Result = __webpack_require__(300);
+	
+	var _Result2 = _interopRequireDefault(_Result);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31652,33 +31664,37 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'jumbotron' },
-	                _react2.default.createElement(
+	                this.state.answers.length <= 10 ? _react2.default.createElement(
 	                    'div',
 	                    null,
 	                    _react2.default.createElement(
-	                        'h2',
-	                        { id: 'rootHeader' },
-	                        this.state.question
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row text-center' },
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(
+	                            'h2',
+	                            { id: 'rootHeader' },
+	                            this.state.question
+	                        )
+	                    ),
 	                    _react2.default.createElement(
-	                        'form',
-	                        { onSubmit: this.handleSubmit },
+	                        'div',
+	                        { className: 'row text-center' },
 	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            _react2.default.createElement('textarea', { cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            _react2.default.createElement('input', { className: 'btn btn-block', type: 'submit', value: 'Submit' })
+	                            'form',
+	                            { onSubmit: this.handleSubmit },
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement('textarea', { cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement('input', { className: 'btn btn-block', type: 'submit', value: 'Submit' })
+	                            )
 	                        )
 	                    )
-	                )
+	                ) : _react2.default.createElement(_Result2.default, null)
 	            );
 	        }
 	    }]);
