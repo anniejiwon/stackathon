@@ -45,8 +45,8 @@ export default class Result extends React.Component {
             }
             
        }
-       handleChange(event) {
-            this.setState({answer: event.target.value});
+       handleChange() {
+            this.setState({result: event.target.value});
        }
 
 
@@ -75,7 +75,7 @@ export default class Result extends React.Component {
                   <div>
                         <form onSubmit={this.handleSubmit}>
                         <div>
-                        <textarea className="form-control" cols="40" rows="5" id="textSpace" onChange={this.handleChange} placeholder={this.props.result}></textarea>
+                        <textarea className="form-control" cols="40" rows="5" id="textSpace"  placeholder={this.props.answers}></textarea>
                         </div>
                         <div id="submitButton">
                         <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Submit" />
