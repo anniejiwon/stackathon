@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Result from './Result'
+// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 
 export default class NewQuestions extends Component {
     constructor() {
@@ -11,7 +12,8 @@ export default class NewQuestions extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+        this.doSomething = this.doSomething.bind(this)
+        }
 
     componentDidMount () {
         this.setState({
@@ -28,32 +30,39 @@ export default class NewQuestions extends Component {
         event.preventDefault()
         this.setState({question: randomQuestion(), answers: this.state.answers.concat(this.state.answer), answer: ''});
     }
+    doSomething() {
+        if (event.keyCode == 13)
+            document.getElementById('submitBtn').click()
+    }
 
 
     render() {
         console.log(this.state)
         return (
-            <div className="jumbotron">
+            <div id="question" className="row">
                 
                 {
                     
                     (this.state.answers.length <= 10) ?  
-                    <div>
-                    <div>
-                    <h2 id="rootHeader">{this.state.question}</h2>
+                    <div id="questionInner">
+                    <div className="questionThumbnail">
+                    <div className="caption">
+                    <h3 id="questionHeader">{this.state.question}</h3>
                     </div>
-                    <div className="row text-center">
+                    <div className="form-group">
                             <form onSubmit={this.handleSubmit}>
                             <div>
-                                <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+                                <input className="form-control" cols="40" rows="5" id="textSpace" autoComplete="off" onChange={this.handleChange} value={this.state.answer}></input>
                             </div>
-                            <div>
-                                <input className="btn btn-block" type="submit" value="Submit" />
+                            <div id="submitButton">
+                                <input id="submitBtn" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Submit" onKeyDown={this.doSomething}/>
                             </div>
                             </form>
+                        </div>
                     </div>
                     </div>
                     :
+
                     <Result state={this.state}/>
 
                 }
@@ -62,6 +71,34 @@ export default class NewQuestions extends Component {
        )
     }
 }
+
+
+// <div className="jumbotron">
+                
+//                 {
+                    
+//                     (this.state.answers.length <= 10) ?  
+//                     <div>
+//                     <div>
+//                     <h2 id="rootHeader">{this.state.question}</h2>
+//                     </div>
+//                     <div className="row text-center">
+//                             <form onSubmit={this.handleSubmit}>
+//                             <div>
+//                                 <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+//                             </div>
+//                             <div>
+//                                 <input className="btn btn-block" type="submit" value="Submit" />
+//                             </div>
+//                             </form>
+//                     </div>
+//                     </div>
+//                     :
+//                     <Result />
+
+//                 }
+                    
+//             </div>
 
 
 

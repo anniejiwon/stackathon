@@ -4343,28 +4343,50 @@
 	
 	// )
 	
+	// <div className="jumbotron">
+	//   <div>
+	//       <h1 id="rootHeader">What's your future?</h1>
+	//       </div>
+	//       <div className="row text-center">
+	//             <Link to="/newQuestions" >Click to find out!</Link> 
+	//       </div>
+	// </div>
+	
+	
 	exports.default = function (_ref) {
 	      var getFirstQuestion = _ref.getFirstQuestion,
 	          question = _ref.question;
 	      return _react2.default.createElement(
 	            'div',
-	            { className: 'jumbotron' },
+	            { id: 'homepage', className: 'row' },
 	            _react2.default.createElement(
 	                  'div',
-	                  null,
+	                  { id: 'homepageInner' },
 	                  _react2.default.createElement(
-	                        'h1',
-	                        { id: 'rootHeader' },
-	                        'What\'s your future?'
-	                  )
-	            ),
-	            _react2.default.createElement(
-	                  'div',
-	                  { className: 'row text-center' },
-	                  _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/newQuestions' },
-	                        'Click to find out!'
+	                        'div',
+	                        { className: 'thumbnail' },
+	                        _react2.default.createElement(
+	                              'div',
+	                              { className: 'caption' },
+	                              _react2.default.createElement(
+	                                    'h2',
+	                                    { id: 'rootHeader' },
+	                                    'What\'s your future?'
+	                              ),
+	                              _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                          'p',
+	                                          null,
+	                                          _react2.default.createElement(
+	                                                _reactRouter.Link,
+	                                                { to: '/newQuestions', className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', role: 'button' },
+	                                                'Click to find out!'
+	                                          )
+	                                    )
+	                              )
+	                        )
 	                  )
 	            )
 	      );
@@ -31522,10 +31544,10 @@
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	      value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31544,6 +31566,7 @@
 	
 	// import axios from 'axios';
 	
+	
 	// export default ({}) => {
 	//       console.log('IN RESULT, this.state: ', state)
 	//       return (
@@ -31553,40 +31576,105 @@
 	// )}
 	
 	// I just had to change this to a component to test something out, feel free to change it back
-	var Result = function (_Component) {
-	    _inherits(Result, _Component);
+	// export default class Result extends Component {
+	//     constructor(props) {
+	//         super();
+	//     }
 	
-	    function Result(props) {
-	        _classCallCheck(this, Result);
+	//     componentDidMount() {
+	//         //this is where I'm planning to make the post to watson with the answers as a req.body
+	//     }
 	
-	        return _possibleConstructorReturn(this, (Result.__proto__ || Object.getPrototypeOf(Result)).call(this));
-	    }
+	//     render() {
 	
-	    _createClass(Result, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            //this is where I'm planning to make the post to watson with the answers as a req.body
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
+	//       console.log('IN RESULT, this.state: ', this.state);
 	
-	            console.log('IN RESULT, this.state: ', this.state);
+	//       return (
+	//             <div>
+	//                   <h3>RESULTS!</h3>
 	
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h3',
-	                    null,
-	                    'RESULTS!'
-	                )
-	            );
-	        }
-	    }]);
+	//             </div>
+	//        )
+	//     }
+	// }
 	
-	    return Result;
-	}(_react.Component);
+	// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+	
+	
+	var Result = function (_React$Component) {
+	      _inherits(Result, _React$Component);
+	
+	      function Result(props) {
+	            _classCallCheck(this, Result);
+	
+	            var _this = _possibleConstructorReturn(this, (Result.__proto__ || Object.getPrototypeOf(Result)).call(this, props));
+	
+	            _this.state = {
+	                  result: ""
+	            };
+	
+	            return _this;
+	      }
+	
+	      _createClass(Result, [{
+	            key: "handleChange",
+	            value: function handleChange(event) {
+	                  this.setState({ answer: event.target.value });
+	            }
+	
+	            // var personality_insights = new PersonalityInsightsV3({
+	            //       username: 'anniejiwon@gmail.com',
+	            //       password: 'xx',
+	            //       version_date: '2016-10-19'
+	            //       });
+	
+	            //       personality_insights.profile({
+	            //       text: {this.state.result},
+	            //       consumption_preferences: true
+	            //       },
+	            //       function (err, response) {
+	            //       if (err)
+	            //             console.log('error:', err);
+	            //       else
+	            //             console.log(JSON.stringify(response, null, 2));
+	            //       });
+	
+	
+	      }, {
+	            key: "render",
+	            value: function render() {
+	                  return _react2.default.createElement(
+	                        "div",
+	                        null,
+	                        _react2.default.createElement(
+	                              "h3",
+	                              null,
+	                              "RESULTS!"
+	                        ),
+	                        _react2.default.createElement(
+	                              "div",
+	                              null,
+	                              _react2.default.createElement(
+	                                    "form",
+	                                    { onSubmit: this.handleSubmit },
+	                                    _react2.default.createElement(
+	                                          "div",
+	                                          null,
+	                                          _react2.default.createElement("textarea", { className: "form-control", cols: "40", rows: "5", id: "textSpace", onChange: this.handleChange, placeholder: this.props.result })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                          "div",
+	                                          { id: "submitButton" },
+	                                          _react2.default.createElement("input", { className: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent", type: "submit", value: "Submit" })
+	                                    )
+	                              )
+	                        )
+	                  );
+	            }
+	      }]);
+	
+	      return Result;
+	}(_react2.default.Component);
 	
 	exports.default = Result;
 
@@ -31662,6 +31750,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+	
 	var NewQuestions = function (_Component) {
 	    _inherits(NewQuestions, _Component);
 	
@@ -31676,6 +31766,7 @@
 	        };
 	        _this.handleChange = _this.handleChange.bind(_this);
 	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	        _this.doSomething = _this.doSomething.bind(_this);
 	        return _this;
 	    }
 	
@@ -31698,39 +31789,48 @@
 	            this.setState({ question: randomQuestion(), answers: this.state.answers.concat(this.state.answer), answer: '' });
 	        }
 	    }, {
+	        key: 'doSomething',
+	        value: function doSomething() {
+	            if (event.keyCode == 13) document.getElementById('submitBtn').click();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            console.log(this.state);
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'jumbotron' },
+	                { id: 'question', className: 'row' },
 	                this.state.answers.length <= 10 ? _react2.default.createElement(
 	                    'div',
-	                    null,
+	                    { id: 'questionInner' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        null,
+	                        { className: 'questionThumbnail' },
 	                        _react2.default.createElement(
-	                            'h2',
-	                            { id: 'rootHeader' },
-	                            this.state.question
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row text-center' },
+	                            'div',
+	                            { className: 'caption' },
+	                            _react2.default.createElement(
+	                                'h3',
+	                                { id: 'questionHeader' },
+	                                this.state.question
+	                            )
+	                        ),
 	                        _react2.default.createElement(
-	                            'form',
-	                            { onSubmit: this.handleSubmit },
+	                            'div',
+	                            { className: 'form-group' },
 	                            _react2.default.createElement(
-	                                'div',
-	                                null,
-	                                _react2.default.createElement('textarea', { cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                null,
-	                                _react2.default.createElement('input', { className: 'btn btn-block', type: 'submit', value: 'Submit' })
+	                                'form',
+	                                { onSubmit: this.handleSubmit },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement('input', { className: 'form-control', cols: '40', rows: '5', id: 'textSpace', autoComplete: 'off', onChange: this.handleChange, value: this.state.answer })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { id: 'submitButton' },
+	                                    _react2.default.createElement('input', { id: 'submitBtn', className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', type: 'submit', value: 'Submit', onKeyDown: this.doSomething })
+	                                )
 	                            )
 	                        )
 	                    )
@@ -31742,9 +31842,35 @@
 	    return NewQuestions;
 	}(_react.Component);
 	
+	// <div className="jumbotron">
+	
+	//                 {
+	
+	//                     (this.state.answers.length <= 10) ?  
+	//                     <div>
+	//                     <div>
+	//                     <h2 id="rootHeader">{this.state.question}</h2>
+	//                     </div>
+	//                     <div className="row text-center">
+	//                             <form onSubmit={this.handleSubmit}>
+	//                             <div>
+	//                                 <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+	//                             </div>
+	//                             <div>
+	//                                 <input className="btn btn-block" type="submit" value="Submit" />
+	//                             </div>
+	//                             </form>
+	//                     </div>
+	//                     </div>
+	//                     :
+	//                     <Result />
+	
+	//                 }
+	
+	//             </div>
+	
+	
 	exports.default = NewQuestions;
-	
-	
 	var answeredQs = [];
 	
 	function randomQuestion() {
