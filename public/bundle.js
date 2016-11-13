@@ -4343,28 +4343,50 @@
 	
 	// )
 	
+	// <div className="jumbotron">
+	//   <div>
+	//       <h1 id="rootHeader">What's your future?</h1>
+	//       </div>
+	//       <div className="row text-center">
+	//             <Link to="/newQuestions" >Click to find out!</Link> 
+	//       </div>
+	// </div>
+	
+	
 	exports.default = function (_ref) {
 	      var getFirstQuestion = _ref.getFirstQuestion,
 	          question = _ref.question;
 	      return _react2.default.createElement(
 	            'div',
-	            { className: 'jumbotron' },
+	            { id: 'homepage', className: 'row' },
 	            _react2.default.createElement(
 	                  'div',
-	                  null,
+	                  { id: 'homepageInner' },
 	                  _react2.default.createElement(
-	                        'h1',
-	                        { id: 'rootHeader' },
-	                        'What\'s your future?'
-	                  )
-	            ),
-	            _react2.default.createElement(
-	                  'div',
-	                  { className: 'row text-center' },
-	                  _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/newQuestions' },
-	                        'Click to find out!'
+	                        'div',
+	                        { className: 'thumbnail' },
+	                        _react2.default.createElement(
+	                              'div',
+	                              { className: 'caption' },
+	                              _react2.default.createElement(
+	                                    'h3',
+	                                    { id: 'rootHeader' },
+	                                    'What\'s your future?'
+	                              ),
+	                              _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                          'p',
+	                                          null,
+	                                          _react2.default.createElement(
+	                                                _reactRouter.Link,
+	                                                { to: '/newQuestions', className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', role: 'button' },
+	                                                'Click to find out!'
+	                                          )
+	                                    )
+	                              )
+	                        )
 	                  )
 	            )
 	      );
