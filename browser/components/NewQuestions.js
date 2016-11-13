@@ -41,14 +41,14 @@ export default class NewQuestions extends Component {
                     <div id="questionInner">
                     <div className="questionThumbnail">
                     <div className="caption">
-                    <h2 id="rootHeader">{this.state.question}</h2>
+                    <h3 id="questionHeader">{this.state.question}</h3>
                     </div>
-                    <div className="row text-center">
+                    <div className="form-group">
                             <form onSubmit={this.handleSubmit}>
                             <div>
-                                <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+                                <textarea className="form-control" cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
                             </div>
-                            <div>
+                            <div id="submitButton">
                                 <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Submit" />
                             </div>
                             </form>
