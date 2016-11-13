@@ -31732,7 +31732,7 @@
 	        };
 	        _this.handleChange = _this.handleChange.bind(_this);
 	        _this.handleSubmit = _this.handleSubmit.bind(_this);
-	
+	        _this.doSomething = _this.doSomething.bind(_this);
 	        return _this;
 	    }
 	
@@ -31753,6 +31753,11 @@
 	        value: function handleSubmit(event) {
 	            event.preventDefault();
 	            this.setState({ question: randomQuestion(), answers: this.state.answers.concat(this.state.answer), answer: '' });
+	        }
+	    }, {
+	        key: 'doSomething',
+	        value: function doSomething() {
+	            if (event.keyCode == 13) document.getElementById('submitBtn').click();
 	        }
 	    }, {
 	        key: 'render',
@@ -31785,12 +31790,12 @@
 	                                _react2.default.createElement(
 	                                    'div',
 	                                    null,
-	                                    _react2.default.createElement('textarea', { className: 'form-control', cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
+	                                    _react2.default.createElement('input', { className: 'form-control', cols: '40', rows: '5', id: 'textSpace', autoComplete: 'off', onChange: this.handleChange, value: this.state.answer })
 	                                ),
 	                                _react2.default.createElement(
 	                                    'div',
 	                                    { id: 'submitButton' },
-	                                    _react2.default.createElement('input', { className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', type: 'submit', value: 'Submit' })
+	                                    _react2.default.createElement('input', { id: 'submitBtn', className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', type: 'submit', value: 'Submit', onKeyDown: this.doSomething })
 	                                )
 	                            )
 	                        )

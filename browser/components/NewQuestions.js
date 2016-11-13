@@ -12,7 +12,7 @@ export default class NewQuestions extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.doSomething = this.doSomething.bind(this)
         }
 
     componentDidMount () {
@@ -29,6 +29,10 @@ export default class NewQuestions extends Component {
     handleSubmit(event) {
         event.preventDefault()
         this.setState({question: randomQuestion(), answers: this.state.answers.concat(this.state.answer), answer: ''});
+    }
+    doSomething() {
+        if (event.keyCode == 13)
+            document.getElementById('submitBtn').click()
     }
 
 
@@ -48,10 +52,10 @@ export default class NewQuestions extends Component {
                     <div className="form-group">
                             <form onSubmit={this.handleSubmit}>
                             <div>
-                                <textarea className="form-control" cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+                                <input className="form-control" cols="40" rows="5" id="textSpace" autoComplete="off" onChange={this.handleChange} value={this.state.answer}></input>
                             </div>
                             <div id="submitButton">
-                                <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Submit" />
+                                <input id="submitBtn" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Submit" onKeyDown={this.doSomething}/>
                             </div>
                             </form>
                         </div>
