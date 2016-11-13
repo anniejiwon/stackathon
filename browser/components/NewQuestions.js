@@ -25,7 +25,7 @@ export default class NewQuestions extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        this.setState({question: randomQuestion(), answers: this.state.answers.concat(this.state.answer)});
+        this.setState({question: randomQuestion(), answers: this.state.answers.concat(this.state.answer), answer: ''});
     }
 
 
@@ -39,7 +39,7 @@ export default class NewQuestions extends Component {
                     <div className="row text-center">
                             <form onSubmit={this.handleSubmit}>
                             <div>
-                                <textarea cols="40" rows="5" onChange={this.handleChange} ></textarea>
+                                <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
                             </div>
                             <div>
                                 <input className="btn btn-block" type="submit" value="Submit" />

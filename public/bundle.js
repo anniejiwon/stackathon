@@ -31643,7 +31643,7 @@
 	        key: 'handleSubmit',
 	        value: function handleSubmit(event) {
 	            event.preventDefault();
-	            this.setState({ question: randomQuestion(), answers: this.state.answers.concat(this.state.answer) });
+	            this.setState({ question: randomQuestion(), answers: this.state.answers.concat(this.state.answer), answer: '' });
 	        }
 	    }, {
 	        key: 'render',
@@ -31670,7 +31670,7 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            null,
-	                            _react2.default.createElement('textarea', { cols: '40', rows: '5', onChange: this.handleChange })
+	                            _react2.default.createElement('textarea', { cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
