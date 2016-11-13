@@ -3,6 +3,17 @@
 const express = require('express');
 const volleyball = require('volleyball');
 
+
+var PersonalityInsightsV2 = require('watson-developer-cloud/personality-insights/v2');
+var fs = require('fs');
+
+var personality_insights = new PersonalityInsightsV2({
+    url: "https://gateway.watsonplatform.net/personality-insights/api",
+    username: '83acba1f-9461-4c89-b6d0-deab31578b5b',
+    password: 'vZFSqxhbugIa'
+});
+
+
 const app = express();
 
 app.use(volleyball);
