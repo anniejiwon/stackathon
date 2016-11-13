@@ -1,3 +1,39 @@
-#rootHeader {
+
+
+#homepage {
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 800px; 
     text-align: center;
+    padding-top: 50px;
+    
+}
+.thumbnail {
+    padding: 100px;
+}
+
+#rootHeader {
+    padding-bottom: 30px;
+}
+
+#question {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 800px; 
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 10px;
+
+}
+.questionThumbnail {
+    padding: 50px;
+}
+
+/*#rootHeader {
+    padding-bottom: 30px;
+}
+*/
+
+#submitButton {
+    margin-top: 40px;
 }

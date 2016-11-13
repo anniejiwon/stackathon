@@ -14,6 +14,8 @@ import {receiveAllQuestions} from './reducer';
 import {loadQuestion} from './reducer';
 import NewQuestions from './components/NewQuestions';
 
+
+
 const consolelog = function() {
       console.log('store.getState: ', store.getState());
 }
@@ -30,6 +32,7 @@ const onHomeEnter = function () {
     .then(res => res.json())
     .then(result => loadQuestions(result))
 };
+
 
 
 render (
