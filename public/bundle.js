@@ -31544,11 +31544,13 @@
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	      value: true
 	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
 	
@@ -31556,21 +31558,91 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	exports.default = function (_ref) {
-	      _objectDestructuringEmpty(_ref);
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	      return _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement(
-	                  'h3',
-	                  null,
-	                  'RESULTS!'
-	            )
-	      );
-	};
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+	
+	
+	var Result = function (_React$Component) {
+	      _inherits(Result, _React$Component);
+	
+	      function Result(props) {
+	            _classCallCheck(this, Result);
+	
+	            var _this = _possibleConstructorReturn(this, (Result.__proto__ || Object.getPrototypeOf(Result)).call(this, props));
+	
+	            _this.state = {
+	                  result: ""
+	            };
+	
+	            return _this;
+	      }
+	
+	      _createClass(Result, [{
+	            key: "handleChange",
+	            value: function handleChange(event) {
+	                  this.setState({ answer: event.target.value });
+	            }
+	
+	            // var personality_insights = new PersonalityInsightsV3({
+	            //       username: 'anniejiwon@gmail.com',
+	            //       password: 'xx',
+	            //       version_date: '2016-10-19'
+	            //       });
+	
+	            //       personality_insights.profile({
+	            //       text: {this.state.result},
+	            //       consumption_preferences: true
+	            //       },
+	            //       function (err, response) {
+	            //       if (err)
+	            //             console.log('error:', err);
+	            //       else
+	            //             console.log(JSON.stringify(response, null, 2));
+	            //       });
+	
+	
+	      }, {
+	            key: "render",
+	            value: function render() {
+	                  return _react2.default.createElement(
+	                        "div",
+	                        null,
+	                        _react2.default.createElement(
+	                              "h3",
+	                              null,
+	                              "RESULTS!"
+	                        ),
+	                        _react2.default.createElement(
+	                              "div",
+	                              null,
+	                              _react2.default.createElement(
+	                                    "form",
+	                                    { onSubmit: this.handleSubmit },
+	                                    _react2.default.createElement(
+	                                          "div",
+	                                          null,
+	                                          _react2.default.createElement("textarea", { className: "form-control", cols: "40", rows: "5", id: "textSpace", onChange: this.handleChange, placeholder: this.props.result })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                          "div",
+	                                          { id: "submitButton" },
+	                                          _react2.default.createElement("input", { className: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent", type: "submit", value: "Submit" })
+	                                    )
+	                              )
+	                        )
+	                  );
+	            }
+	      }]);
+	
+	      return Result;
+	}(_react2.default.Component);
+	
+	exports.default = Result;
 
 /***/ },
 /* 301 */
@@ -31644,6 +31716,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+	
 	var NewQuestions = function (_Component) {
 	    _inherits(NewQuestions, _Component);
 	
@@ -31658,6 +31732,7 @@
 	        };
 	        _this.handleChange = _this.handleChange.bind(_this);
 	        _this.handleSubmit = _this.handleSubmit.bind(_this);
+	
 	        return _this;
 	    }
 	
@@ -31720,7 +31795,7 @@
 	                            )
 	                        )
 	                    )
-	                ) : _react2.default.createElement(_Result2.default, null)
+	                ) : _react2.default.createElement(_Result2.default, { result: this.state.answers })
 	            );
 	        }
 	    }]);

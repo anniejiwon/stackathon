@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Result from './Result'
+// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 
 export default class NewQuestions extends Component {
     constructor() {
@@ -11,7 +12,8 @@ export default class NewQuestions extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+
+        }
 
     componentDidMount () {
         this.setState({
@@ -56,7 +58,7 @@ export default class NewQuestions extends Component {
                     </div>
                     </div>
                     :
-                    <Result />
+                    <Result result={this.state.answers} />
 
                 }
                     
