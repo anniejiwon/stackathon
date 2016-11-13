@@ -20,12 +20,12 @@ export default class NewQuestions extends Component {
 
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        this.setState({answer: event.target.value});
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        this.setState({answers: this.state.answers.push(event.target.value)});
+        this.setState({question: randomQuestion(), answers: this.state.answers.concat(this.state.answer)});
     }
 
 
@@ -37,7 +37,7 @@ export default class NewQuestions extends Component {
                     <h2 id="rootHeader">{this.state.question}</h2>
                     </div>
                     <div className="row text-center">
-                            <form >
+                            <form onSubmit={this.handleSubmit}>
                             <div>
                                 <textarea cols="40" rows="5" onChange={this.handleChange} ></textarea>
                             </div>

@@ -31637,13 +31637,13 @@
 	    }, {
 	        key: 'handleChange',
 	        value: function handleChange(event) {
-	            this.setState({ value: event.target.value });
+	            this.setState({ answer: event.target.value });
 	        }
 	    }, {
 	        key: 'handleSubmit',
 	        value: function handleSubmit(event) {
 	            event.preventDefault();
-	            this.setState({ answers: this.state.answers.push(event.target.value) });
+	            this.setState({ question: randomQuestion(), answers: this.state.answers.concat(this.state.answer) });
 	        }
 	    }, {
 	        key: 'render',
@@ -31666,7 +31666,7 @@
 	                    { className: 'row text-center' },
 	                    _react2.default.createElement(
 	                        'form',
-	                        null,
+	                        { onSubmit: this.handleSubmit },
 	                        _react2.default.createElement(
 	                            'div',
 	                            null,
