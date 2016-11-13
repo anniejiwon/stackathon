@@ -9,12 +9,17 @@ import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-rou
 import store from './store';
 import Result from './components/Result';
 import RootModalContainer from './containers/RootModalContainer';
-import axios from 'axios'
-import {receiveAllQuestions} from './reducer'
+import axios from 'axios';
+import {receiveAllQuestions} from './reducer';
+import {loadQuestion} from './reducer';
+import NewQuestions from './components/NewQuestions';
 
- 
-
-
+const consolelog = function() {
+      console.log('store.getState: ', store.getState());
+}
+const loadFirstQuestion = function() {
+  loadQuestion(1);
+}
 
 const loadQuestions = (questions) => {
   store.dispatch(receiveAllQuestions(questions));
@@ -30,9 +35,8 @@ const onHomeEnter = function () {
 render (
   <Provider store={store}>
     <Router history={ hashHistory }>
-      <Route path="/" component={Root} onEnter={onHomeEnter} >
-        <Route path="rootModal" component={RootModalContainer} />
-      </Route>
+      <Route path="/" component={Root} />
+      <Route path="newQuestions" component={ NewQuestions } />
     </Router>
   </Provider>,
   document.getElementById('app')

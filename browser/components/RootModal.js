@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { fetchNewQuestion } from '../reducer';
 
 
-export default ({question,getNewQuestion}) => (
+export default ({question, getNewQuestion}) => {
+  console.log('Entered RootModal, store: ', question);
+  return(
       <div className="container">
       <div className="modal fade" id="largeModal" tabIndex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div className="modal-dialog modal-lg">
@@ -12,7 +14,7 @@ export default ({question,getNewQuestion}) => (
               <h4 className="modal-title" id="myModalLabel">Large Modal</h4>
             </div>
             <div className="modal-body">
-              <h3>{currentQuestion}</h3>
+              <h3>{question}</h3>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
@@ -23,6 +25,7 @@ export default ({question,getNewQuestion}) => (
       </div>
       </div>
 )
+}
 
 
 // export default ({currentQuestion}) => (

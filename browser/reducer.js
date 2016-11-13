@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import axios from 'axios';
 
 //-------------ACTIONS-------------
 
@@ -21,51 +22,60 @@ export const receiveAllQuestions = (questions) => ({
 
 
 // currentQuestion Reducer:
-export function questionReducer(state = {}, action) {
+export function question(question = {}, action) {
     switch(action.type) {
         case GET_QUESTION:
             return action.question;
 
         default:
-            return state;
+            return question;
     }
 }
 
-export function questionsReducer(state = [], action) {
+export function questions(questions = [], action) {
     switch(action.type) {
         case RECEIVE_ALL_QUESTIONS:
             return action.questions;
 
         default:
-            return state;
+            return questions;
     }
 }
 
 //-------------DISPATCHERS-------------
 
-export const loadQuestion = function (questionId) {
-  return function (dispatch) {
-    fetch('/api/questions/' + questionId)
-      .then(res => res.json())
-      .then(question => 
-        dispatch(getQuestion(question))
-      )
-      .catch(err => console.error(err));
-  };
-};
+// export const loadQuestion = function (questionId) {
+//     console.log('loadQuestion');
+//   return function (dispatch) {
+//     axios.get(`api/questions/${questionId}`)
+//       .then(res => res.json())
+//       .then(question => 
+//         dispatch(getQuestion(question))
+//       )
+//       .catch(err => console.error(err));
+//   };
+// };
 
-// export const fetchNewQuestion = () => ((dispatch) => {
-// 	fetch(`/api/questions/1`)
-//     .then(res => res.json())
-//     .then(item => {
-//     	dispatch(getQuestion(question))
-//     });
-// })
+
+export const loadQuestion = (questionId) => ((dispatch) => {
+	console.log("dispatching getQuestion")
+	fetch(`api/questions/${questionId}`)
+    .then(res => res.json())
+    .then(question => {
+    	console.log("QUESTION: ", question);
+    	dispatch(getQuestion(question))
+    });
+})
+
+
 
 
 const rootReducer = combineReducers({
-  allQuestions: questionsReducer,
-  question: questionReducer
+  questions,
+  question
 });
 
 export default rootReducer;
+
+
+

@@ -9,7 +9,7 @@ import thunkMiddleware from 'redux-thunk'
 
 const loggerMiddleware = createLogger();
 const middleware = applyMiddleware(thunkMiddleware, loggerMiddleware)
-const store = createStore(rootReducer, middleware);
+const store = createStore(rootReducer, {}, middleware);
 
 // const store = createStore(reducer)
 
