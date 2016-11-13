@@ -33,13 +33,14 @@ export default class NewQuestions extends Component {
     render() {
         console.log(this.state)
         return (
-            <div className="jumbotron">
+            <div id="question" className="row">
                 
                 {
                     
                     (this.state.answers.length <= 10) ?  
-                    <div>
-                    <div>
+                    <div id="questionInner">
+                    <div className="questionThumbnail">
+                    <div className="caption">
                     <h2 id="rootHeader">{this.state.question}</h2>
                     </div>
                     <div className="row text-center">
@@ -48,9 +49,10 @@ export default class NewQuestions extends Component {
                                 <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
                             </div>
                             <div>
-                                <input className="btn btn-block" type="submit" value="Submit" />
+                                <input className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Submit" />
                             </div>
                             </form>
+                        </div>
                     </div>
                     </div>
                     :
@@ -62,6 +64,34 @@ export default class NewQuestions extends Component {
        )
     }
 }
+
+
+// <div className="jumbotron">
+                
+//                 {
+                    
+//                     (this.state.answers.length <= 10) ?  
+//                     <div>
+//                     <div>
+//                     <h2 id="rootHeader">{this.state.question}</h2>
+//                     </div>
+//                     <div className="row text-center">
+//                             <form onSubmit={this.handleSubmit}>
+//                             <div>
+//                                 <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+//                             </div>
+//                             <div>
+//                                 <input className="btn btn-block" type="submit" value="Submit" />
+//                             </div>
+//                             </form>
+//                     </div>
+//                     </div>
+//                     :
+//                     <Result />
+
+//                 }
+                    
+//             </div>
 
 
 

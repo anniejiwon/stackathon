@@ -15,3 +15,21 @@
 #rootHeader {
     padding-bottom: 30px;
 }
+
+#question {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 800px; 
+    text-align: center;
+    padding-top: 50px;
+
+}
+.questionThumbnail {
+    padding: 50px;
+}
+
+/*#rootHeader {
+    padding-bottom: 30px;
+}
+*/
+

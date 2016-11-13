@@ -31685,34 +31685,38 @@
 	            console.log(this.state);
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'jumbotron' },
+	                { id: 'question', className: 'row' },
 	                this.state.answers.length <= 10 ? _react2.default.createElement(
 	                    'div',
-	                    null,
+	                    { id: 'questionInner' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        null,
+	                        { className: 'questionThumbnail' },
 	                        _react2.default.createElement(
-	                            'h2',
-	                            { id: 'rootHeader' },
-	                            this.state.question
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row text-center' },
+	                            'div',
+	                            { className: 'caption' },
+	                            _react2.default.createElement(
+	                                'h2',
+	                                { id: 'rootHeader' },
+	                                this.state.question
+	                            )
+	                        ),
 	                        _react2.default.createElement(
-	                            'form',
-	                            { onSubmit: this.handleSubmit },
+	                            'div',
+	                            { className: 'row text-center' },
 	                            _react2.default.createElement(
-	                                'div',
-	                                null,
-	                                _react2.default.createElement('textarea', { cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                null,
-	                                _react2.default.createElement('input', { className: 'btn btn-block', type: 'submit', value: 'Submit' })
+	                                'form',
+	                                { onSubmit: this.handleSubmit },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement('textarea', { cols: '40', rows: '5', id: 'textSpace', onChange: this.handleChange, value: this.state.answer })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement('input', { className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', type: 'submit', value: 'Submit' })
+	                                )
 	                            )
 	                        )
 	                    )
@@ -31724,9 +31728,35 @@
 	    return NewQuestions;
 	}(_react.Component);
 	
+	// <div className="jumbotron">
+	
+	//                 {
+	
+	//                     (this.state.answers.length <= 10) ?  
+	//                     <div>
+	//                     <div>
+	//                     <h2 id="rootHeader">{this.state.question}</h2>
+	//                     </div>
+	//                     <div className="row text-center">
+	//                             <form onSubmit={this.handleSubmit}>
+	//                             <div>
+	//                                 <textarea cols="40" rows="5" id="textSpace" onChange={this.handleChange} value={this.state.answer}></textarea>
+	//                             </div>
+	//                             <div>
+	//                                 <input className="btn btn-block" type="submit" value="Submit" />
+	//                             </div>
+	//                             </form>
+	//                     </div>
+	//                     </div>
+	//                     :
+	//                     <Result />
+	
+	//                 }
+	
+	//             </div>
+	
+	
 	exports.default = NewQuestions;
-	
-	
 	var answeredQs = [];
 	
 	function randomQuestion() {
