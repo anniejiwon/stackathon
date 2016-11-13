@@ -3,11 +3,68 @@
 const express = require('express');
 const volleyball = require('volleyball');
 
+
+// cfenv provides access to your Cloud Foundry environment
+// for more info, see: https://www.npmjs.com/package/cfenv
+var cfenv = require('cfenv');
+
 const app = express();
 
 app.use(volleyball);
 
 app.use(express.static(__dirname));
+// app.use(express.static(__dirname + '/public'));
+
+// get the app environment from Cloud Foundry
+var appEnv = cfenv.getAppEnv();
+
+// start server on the specified port and binding host
+app.listen(appEnv.port, '0.0.0.0', function() {
+  console.log("server listening on " + appEnv.url);
+});
+
+
+//Watson parts
+
+var watson = require('watson-developer-cloud'),
+    multer = require('multer');
+
+var service = {
+  url: "https://gateway.watsonplatform.net/personality-insights/api",
+  password: "WV6m1MJaIQQp",
+  username: "9027616c-19eb-4ea7-a2a2-32106190437a",
+  version: 'v3',
+  version_date: '2016-10-19'
+};
+
+var personalityInsights = watson.personality_insights(service);
+
+
+
+var uploading = multer({
+    storage: multer.memoryStorage()
+});
+
+app.set('json spaces', 4);
+
+app.post('/upload', function (req, res, next) {
+    // between /upload and function, there was also the parameter: uploading.single('file'),
+    // var txtFile = request.file.buffer.toString();
+    // console.log(request.file.buffer);
+
+    personalityInsights.profile({
+        text: answersArray },
+        function (error, res) {
+            if (error) {
+                response.send(error);
+            }
+            else {
+                response.json(res);
+            }
+        }
+    );
+});
+
 
 const beenAsked =[];
 const questions = [
@@ -81,7 +138,7 @@ app.get('/api/questions/:questionIndex', function (req, res) {
   res.json(questions[req.params.questionIndex]);
 });
 
-app.listen(3000, function () {
-  console.log('Server listening on port', 3000);
-});
+// app.listen(3000, function () {
+//   console.log('Server listening on port', 3000);
+// });
 
