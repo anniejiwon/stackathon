@@ -70,7 +70,14 @@ const answeredQs =[];
 
 
 function randomQuestion() {
-  return questions[Math.floor(Math.random() * questions.length)]
+    let questionsAsked = {};
+    let question = questions[Math.floor(Math.random() * questions.length)]
+    if (!questionsAsked[question]) {
+        questions[question] = question
+        return question
+    } else {
+        return randomQuestion
+    }
 }
 
 const questions = [
