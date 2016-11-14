@@ -8,7 +8,6 @@ import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-router';
 import store from './store';
 import Result from './components/Result';
-import RootModalContainer from './containers/RootModalContainer';
 import axios from 'axios';
 import {receiveAllQuestions} from './reducer';
 import {loadQuestion} from './reducer';

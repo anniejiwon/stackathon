@@ -2,6 +2,8 @@
 
 const express = require('express');
 const volleyball = require('volleyball');
+var bodyParser = require('body-parser');
+
 
 
 // cfenv provides access to your Cloud Foundry environment
@@ -14,7 +16,8 @@ app.use(volleyball);
 
 app.use(express.static(__dirname));
 // app.use(express.static(__dirname + '/public'));
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
@@ -26,8 +29,7 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 
 //Watson parts
 
-var watson = require('watson-developer-cloud'),
-    multer = require('multer');
+var watson = require('watson-developer-cloud');
 
 var service = {
   url: "https://gateway.watsonplatform.net/personality-insights/api",
@@ -40,31 +42,26 @@ var service = {
 var personalityInsights = watson.personality_insights(service);
 
 
+app.post('/v3/profile', function (request, response) {
+    console.log("__HIT WATSON ROUTE__");
+    var txtFile = JSON.stringify(request.body);
+    console.log('REQUEST.BODY: ', request.body);
 
-var uploading = multer({
-    storage: multer.memoryStorage()
-});
-
-app.set('json spaces', 4);
-
-app.post('/upload', function (req, res, next) {
-    // between /upload and function, there was also the parameter: uploading.single('file'),
-    // var txtFile = request.file.buffer.toString();
-    // console.log(request.file.buffer);
-
-    personalityInsights.profile({
-        text: answersArray },
-        function (error, res) {
+    return personalityInsights.profile({
+        text: txtFile },
+        function (error, result) {
+            console.log('IN PERSONALITY INSIGHTS');
             if (error) {
                 response.send(error);
             }
             else {
-                response.json(res);
+                response.json(result);
             }
         }
     );
 });
 
+require('cf-deployment-tracker-client').track();
 
 const beenAsked =[];
 const questions = [

@@ -62,9 +62,7 @@ export default class NewQuestions extends Component {
                     </div>
                     </div>
                     :
-
-                    <Result state={this.state}/>
-
+                    <Result answers={this.state.answers}/>
                 }
                     
             </div>
