@@ -31,8 +31,8 @@ var watson = require('watson-developer-cloud'),
 
 var service = {
   url: "https://gateway.watsonplatform.net/personality-insights/api",
-  password: "WV6m1MJaIQQp",
-  username: "9027616c-19eb-4ea7-a2a2-32106190437a",
+  password: "xxxx",
+  username: "xxxx",
   version: 'v3',
   version_date: '2016-10-19'
 };
